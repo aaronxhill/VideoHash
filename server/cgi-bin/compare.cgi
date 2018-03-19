@@ -6,13 +6,18 @@ import sys
 import getopt
 import os
 
-import commands
+import subprocess
+
 
 status = 1
 idx = 0
 
 while status == 0 and idx <= 60:
-  status, output = commands.getstatusoutput("intkey show 25736.{}")
+  print (output)
+  command = "intkey show 25736.{}".format(idx)  # the shell command
+  process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+  output, error = process.communicate()
+  status = process.returncode
   print (output)
 
 exit (0)
