@@ -21,7 +21,7 @@ if not formVars['v0'][0].isdigit():
   print('Go back to the previous page and type in a reference number to compare.')
   exit(0)  
   
-print(formVars)
+# print(formVars)
 
 cmpFr = formVars['path'][0]
 cmpTo = formVars['v0'][0] # blockchain cookie # to compare to
@@ -58,8 +58,6 @@ if not len(lhashes) == len(fhashes):
   print('<center><h2>The videos have different numbers of frames!<br>')
   print('Local Hashes: {}, Foreign Hashes:{}</h2></center>'.format(len(lhashes), len(fhashes)))
   exit(0)
-  
-exit(9)
   
 print('<center><h2>Comparing local video and blockchain hashes<h2>')
 print('<table style="width:60%">')
