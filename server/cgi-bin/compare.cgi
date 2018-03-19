@@ -25,19 +25,6 @@ if not formVars['v0'][0].isdigit():
 
 cmpFr = formVars['path'][0]
 cmpTo = formVars['v0'][0] # blockchain cookie # to compare to
-
-try:
-   opts, args = getopt.getopt(sys.argv[1:],"hc:")
-except getopt.GetoptError:
-   print ('compare.py -c <cookie>')
-   sys.exit(2)
-
-for opt, arg in opts:
-   if opt == '-h':
-       print ('compare.py -c <cookie>')
-       sys.exit()
-   elif opt in ("-c"):
-       cmpTo = arg
        
 #f = open('../{}/data.json'.format(cmpFr), 'r')
 #lhashes = f.read().split('\n') # local hashes
@@ -67,9 +54,6 @@ while idx <= 60:
 lhashes = [x for x in lhashes if x]
 fhashes = [x for x in fhashes if x]
 
-for i in range(0, len(lhashes)-1):
-  print("intkey show {}.{}".format(cmpTo, i))
-  
 if not len(lhashes) == len(fhashes):
   print('<center><h2>The videos have different numbers of frames!<br>')
   print('Local Hashes: {}, Foreign Hashes:{}</h2></center>'.format(len(lhashes), len(fhashes)))
