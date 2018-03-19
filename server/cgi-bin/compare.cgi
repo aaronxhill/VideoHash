@@ -45,7 +45,7 @@ while idx <= 60:
   output, error = process.communicate()
   status = process.returncode
   if status == 0:
-    fhashes.append(output.split()[1])
+    fhashes.append(str(output.split()[1]))
   else:
     break
   idx += 1
