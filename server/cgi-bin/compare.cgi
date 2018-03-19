@@ -40,7 +40,7 @@ idx = 0
 fhashes = []
 
 while idx <= 60:
-  command = "intkey show 25736.{}".format(idx)  # the shell command
+  command = "intkey show {}.{}".format(cmpTo, idx)  # the shell command
   process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
   output, error = process.communicate()
   status = process.returncode
