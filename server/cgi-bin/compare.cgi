@@ -21,7 +21,7 @@ if not formVars['v0'][0].isdigit():
   print('Go back to the previous page and type in a reference number to compare.')
   exit(0)  
   
-# print(formVars)
+print(formVars)
 
 cmpFr = formVars['path'][0]
 cmpTo = formVars['v0'][0] # blockchain cookie # to compare to
