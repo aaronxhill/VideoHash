@@ -5,22 +5,7 @@
 import sys
 import getopt
 import os
-
 import subprocess
-
-
-status = 1
-idx = 0
-
-while status == 0 and idx <= 60:
-  print (output)
-  command = "intkey show 25737.{}".format(idx)  # the shell command
-  process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
-  output, error = process.communicate()
-  status = process.returncode
-  print (output)
-
-exit (0)
 
 print ("Content-type: text/html\n\n")
 
@@ -63,57 +48,20 @@ with open('../{}/data.json'.format(cmpFr)) as f:
 
 lhashes = json_data['hashes']
 
-#import subprocess
-#subprocess.check_output(["ls", "-l", "/dev/null"])
-fhashes = [  #hard coding for now
-'3009043928',
-'3009043928',
-'3009043928',
-'3009043927',
-'3009043928',
-'3009043928',
-'3009043928',
-'3009043928',
-'3009043928',
-'3009043928',
-'3009043928',
-'3009043928',
-'3009043928',
-'3009043928',
-'3009043928',
-'3009043928',
-'3009043928',
-'3009043928',
-'3009043928',
-'2409110966',
-'4053183407',
-'2544822133',
-'0246095977',
-'1790115166',
-'2652776294',
-'0369940768',
-'1009171709',
-'1231654161',
-'1866152371',
-'4280962192',
-'0742550864',
-'3838267001',
-'2437550984',
-'3500389059',
-'3141623961',
-'2998525548',
-'1890626438',
-'1555467454',
-'2373719633',
-'0426918669',
-'1635148543',
-'3891120316',
-'3268503622',
-'3631634328',
-'3563508334',
-'3124308690',
-'1748268765'
-]
+status = 0
+idx = 0
+fhashes = []
+
+while idx <= 60:
+  command = "intkey show 25737.{}".format(idx)  # the shell command
+  process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+  output, error = process.communicate()
+  status = process.returncode
+  if status == 0:
+    fhashes.append(output.split()[1])
+  else:
+    break
+  idx += 1
 
 # get rid of empty strings
 lhashes = [x for x in lhashes if x]
