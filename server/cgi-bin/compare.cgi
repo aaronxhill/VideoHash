@@ -6,6 +6,17 @@ import sys
 import getopt
 import os
 
+import commands
+
+status = 1
+idx = 0
+
+while status == 0 and idx <= 60:
+  status, output = commands.getstatusoutput("intkey show 25736.{}")
+  print (output)
+
+exit (0)
+
 print ("Content-type: text/html\n\n")
 
 from urllib.parse import parse_qs

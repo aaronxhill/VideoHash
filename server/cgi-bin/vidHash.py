@@ -82,7 +82,7 @@ step = 8
 for num, h in enumerate(hashes.split('-')):
   for i in range(0, len(h), step):
     buf = h[i:i+step]
-    os.system ('intkey set {}.{} {} --keyfile /home/ubuntu/.sawtooth/keys/sawtooth.priv'.format(os.path.basename(cookie), "%0.2d"%num + "" , int(buf, 16)))
+    os.system ('intkey set {}.{} {} --keyfile /home/ubuntu/.sawtooth/keys/sawtooth.priv'.format(os.path.basename(cookie), num , int(buf, 16)))
     # print('intkey set {}.{} {} --keyfile .sawtooth/keys/sawtooth.priv'.format(cookie, "%0.2d"%num + str(int(i/step)) , int(buf, 16))) # if we move to > 32 bit keys
 
 ## TO DISPLAY
