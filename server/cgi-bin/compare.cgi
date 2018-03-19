@@ -45,7 +45,7 @@ while idx <= 60:
   output, error = process.communicate()
   status = process.returncode
   if status == 0:
-    fhashes.append(str(output.split()[1]))
+    fhashes.append(str(int(output.split()[1]))) # Gets rid of 'b' preface
   else:
     break
   idx += 1
