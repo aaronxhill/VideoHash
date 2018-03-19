@@ -22,6 +22,7 @@ if not formVars['v0'][0].isdigit():
   exit(0)  
   
 print(formVars)
+exit(9)
 
 cmpFr = formVars['path'][0]
 cmpTo = formVars['v0'][0] # blockchain cookie # to compare to
