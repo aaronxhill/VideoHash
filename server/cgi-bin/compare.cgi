@@ -14,7 +14,7 @@ idx = 0
 
 while status == 0 and idx <= 60:
   print (output)
-  command = "intkey show 25736.{}".format(idx)  # the shell command
+  command = "intkey show 25737.{}".format(idx)  # the shell command
   process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
   output, error = process.communicate()
   status = process.returncode
